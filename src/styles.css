@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  font-family: "Mulish", sans-serif;
+}
+p { margin: 0;}
+.title {
+  font-family: "Carter One", cursive;
+}
+
+.app-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Mulish";
+  src: url("assets/fonts/Mulish-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Carter One";
+  src: url("assets/fonts/CarterOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

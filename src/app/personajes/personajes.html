@@ -1,0 +1,37 @@
+<h1  class="title">Personajes</h1>
+
+<p>Personajes: {{ lstData().length }}</p>
+
+<div class="card-grid">
+  @for (personaje of lstData(); track personaje.personaje_ID) {
+
+    <mat-card class="character-card">
+
+      <mat-card-header>
+        <mat-card-title  class="title">
+          {{ personaje.nombre }}
+        </mat-card-title>
+
+        <mat-card-subtitle>
+          {{ personaje.raza?.nombre }} - {{ personaje.clase?.nombre }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p><strong>EXP:</strong> {{ personaje.experiencia }}</p>
+        <p><strong>Clase:</strong> {{ personaje.clase?.nombre }}</p>
+        <p><strong>Raza:</strong> {{ personaje.raza?.nombre }}</p>
+        <p><strong>Creador:</strong> {{ personaje.usuario?.nombre }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button color="primary">Edit</button>
+        <button mat-button color="warn">Delete</button>
+      </mat-card-actions>
+
+    </mat-card>
+  }
+</div>
+<button mat-button routerLink="/">
+  Back Home
+</button>
