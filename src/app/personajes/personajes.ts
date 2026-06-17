@@ -1,9 +1,9 @@
 import { Component, inject, afterNextRender } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MaterialModule } from '../material/material-module';
-import { Service } from '../service';
+import { PersonajeService } from '../services/personaje.service';
 import { signal } from '@angular/core';
-import { Personaje } from '../models/personaje.model';
+import { Personaje } from '../models/personaje/personaje.model';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class Personajes {
   private _snackBar = inject(MatSnackBar);
-  private service = inject(Service);
+  private PersonajeService = inject(PersonajeService);
 
 lstData = signal<Personaje[]>([]);
 
@@ -25,7 +25,7 @@ lstData = signal<Personaje[]>([]);
   }
 
   private loadData() {
-    this.service.getPersonajes().subscribe(res => {
+    this.PersonajeService.getPersonajes().subscribe(res => {
       this.lstData.set(res);
     });
   }
