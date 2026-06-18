@@ -1,0 +1,50 @@
+<nav class="navbar">
+  <div class="left-section">
+    <a
+      class="logo"
+      routerLink="/home">
+      Rock's D&D Helper
+    </a>
+
+    <div class="nav-links">
+      <a
+        routerLink="/home"
+        routerLinkActive="active">
+        Home
+      </a>
+
+      <a
+        routerLink="/personajes"
+        routerLinkActive="active">
+        Personajes
+      </a>
+    </div>
+  </div>
+
+    <div class="profile-section">
+        <button
+            mat-button
+            [matMenuTriggerFor]="profileMenu">
+
+            <div class="avatar">🦖</div>
+            Rock
+        </button>
+
+        <mat-menu #profileMenu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>person</mat-icon>
+                <span>My Profile</span>
+            </button>
+
+            <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span>
+            </button>
+
+            <button mat-menu-item>
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </div>
+</nav>

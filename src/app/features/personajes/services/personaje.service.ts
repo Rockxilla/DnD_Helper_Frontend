@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../environment';
-import { Personaje } from '../models/personaje/personaje.model';
-import { PersonajeList } from '../models/personaje/personaje-list.model';
-import { CreatePersonaje } from '../models/personaje/create-personaje.model';
-import { UpdatePersonaje } from '../models/personaje/update-personaje.model';
+import { environment } from '../../../../environment';
+import { Personaje } from '../models/personaje.model';
+import { PersonajeList } from '../models/personaje-list.model';
+import { CreatePersonaje } from '../models/create-personaje.model';
+import { UpdatePersonaje } from '../models/update-personaje.model';
 
 @Injectable({
   providedIn: 'root',

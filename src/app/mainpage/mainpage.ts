@@ -1,8 +1,6 @@
 import { Component, inject, afterNextRender } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MaterialModule } from '../material/material-module';
-import { signal } from '@angular/core';
-import { Personaje } from '../models/personaje/personaje.model';
 
 @Component({
   selector: 'app-mainpage',
