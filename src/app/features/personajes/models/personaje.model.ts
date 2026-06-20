@@ -1,6 +1,6 @@
-import { Usuario } from '../../../models/usuario/usuario.model';
-import { Clase } from '../../../models/clase/clase.model';
-import { Raza } from '../../../models/raza/raza.model';
+import { Usuario } from '../../usuarios/models/usuario.model';
+import { ClasePersonaje } from '../../clases/models/clase.model';
+import { RazaPersonaje } from '../../razas/models/raza.model';
 
 export interface Personaje {
   personaje_ID: number;
@@ -8,6 +8,6 @@ export interface Personaje {
   experiencia: number;
 
   usuario?: Usuario;
-  clase?: Clase;
-  raza?: Raza;
+  clase?: ClasePersonaje;
+  raza?: RazaPersonaje;
 }

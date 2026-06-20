@@ -1,10 +1,12 @@
-export interface UpdatePersonaje {
+export interface UpdatePersonajeDto {
   personaje_ID: number;
 
   nombre?: string;
   experiencia?: number;
 
-  usuario_ID?: number;
-  clase_ID?: number;
-  raza_ID?: number;
+  claseNombre?: string;
+  claseDescripcion?: string;
+
+  razaNombre?: string;
+  razaDescripcion?: string;
 }

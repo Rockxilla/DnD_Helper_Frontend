@@ -18,16 +18,19 @@
         routerLinkActive="active">
         Personajes
       </a>
+
     </div>
   </div>
 
     <div class="profile-section">
         <button
-            mat-button
-            [matMenuTriggerFor]="profileMenu">
+          mat-button
+          class="profile-button"
+          [matMenuTriggerFor]="profileMenu">
 
-            <div class="avatar">🦖</div>
-            Rock
+          <div class="avatar">🦖</div>
+          <span>Rock</span>
+
         </button>
 
         <mat-menu #profileMenu="matMenu">

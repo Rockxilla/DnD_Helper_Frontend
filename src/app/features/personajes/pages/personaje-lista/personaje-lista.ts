@@ -1,19 +1,18 @@
 import { Component, inject, afterNextRender } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MaterialModule } from '../../material/material-module';
-import { PersonajeService } from './services/personaje.service';
+import { MaterialModule } from '../../../../material/material-module';
+import { PersonajeService } from '../../services/personaje.service';
 import { signal } from '@angular/core';
-import { Personaje } from './models/personaje.model';
 import { RouterModule } from '@angular/router';
+import { Personaje } from '../../models/personaje.model';
 
 @Component({
   selector: 'app-personajes',
   imports: [MaterialModule, RouterModule],
-  templateUrl: './personajes.html',
-  styleUrl: './personajes.css',
+  templateUrl: './personaje-lista.html',
+  styleUrl: './personaje-lista.css',
 })
 export class Personajes {
-  private _snackBar = inject(MatSnackBar);
   private PersonajeService = inject(PersonajeService);
 
 lstData = signal<Personaje[]>([]);
