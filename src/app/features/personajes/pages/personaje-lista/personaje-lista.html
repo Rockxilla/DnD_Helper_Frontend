@@ -13,13 +13,20 @@
         </mat-card-title>
 
         <mat-card-subtitle>
-          {{ personaje.raza?.nombre }} - {{ personaje.clase?.nombre }}
+          {{ personaje.raza?.nombre }} - {{ personaje.clases?.[0]?.nombre }} {{ personaje.clases?.[0]?.nivel}}
         </mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
         <p><strong>EXP:</strong> {{ personaje.experiencia }}</p>
-        <p><strong>Clase:</strong> {{ personaje.clase?.nombre }}</p>
+        <p><strong>Clases:</strong></p>
+
+        @for (clase of personaje.clases; track clase.claseTemplate_ID) {
+          <p>
+            {{ clase.nombre }} - Nivel {{ clase.nivel }}
+          </p>
+        }
+        <p><strong>Nivel:</strong> {{ personaje.clases?.[0]?.nivel }}</p>
         <p><strong>Raza:</strong> {{ personaje.raza?.nombre }}</p>
         <p><strong>Creador:</strong> {{ personaje.usuario?.nombre }}</p>
       </mat-card-content>

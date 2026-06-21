@@ -10,3 +10,32 @@
 mat-form-field {
   width: 100%;
 }
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.section-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.stat-field {
+  width: 100%;
+}
+
+.stat-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stat-stepper input {
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+}

@@ -35,19 +35,46 @@ export class PersonajeCreate {
     nombre: ['', [Validators.required, Validators.maxLength(100)]],
     experiencia: [0, [Validators.min(0)]],
     claseTemplate_ID: [null as number | null, Validators.required],
-    razaTemplate_ID: [null as number | null, Validators.required]
+    razaTemplate_ID: [null as number | null, Validators.required],
+    claseNivelInicial: [1, [Validators.min(1), Validators.max(20)]],
+
+    strength: [8, [Validators.required, Validators.min(1), Validators.max(20)]],
+    dexterity: [8, [Validators.required, Validators.min(1), Validators.max(20)]],
+    constitution: [8, [Validators.required, Validators.min(1), Validators.max(20)]],
+    intelligence: [8, [Validators.required, Validators.min(1), Validators.max(20)]],
+    wisdom: [8, [Validators.required, Validators.min(1), Validators.max(20)]],
+    charisma: [8, [Validators.required, Validators.min(1), Validators.max(20)]],
   });
+
+  //BOTONES DE STATS
+  statMin = 1;
+  statMax = 20;
+  increase(stat: string) {
+    const current = this.form.get(stat)?.value ?? 0;
+    if (current < this.statMax) {
+      this.form.get(stat)?.setValue(current + 1);
+    }
+  }
+
+  decrease(stat: string) {
+    const current = this.form.get(stat)?.value ?? 0;
+    if (current > this.statMin) {
+      this.form.get(stat)?.setValue(current - 1);
+    }
+  }
 
   ngOnInit() {
     this.loadDropdowns();
   }
   
+  //Cargar la info de Clases y Razas
   private loadDropdowns(): void {
-    this.claseService.getClases().subscribe(res => this.clases.set(res));
+    this.claseService.getClaseList().subscribe(res => this.clases.set(res));
 
-    this.razaService.getRazas().subscribe(res => this.razas.set(res));
+    this.razaService.getRazaList().subscribe(res => this.razas.set(res));
   }
 
+  //Insertar Info Base del Personaje
   createPersonaje(): void {
 
     if (this.form.invalid) {
@@ -72,7 +99,8 @@ export class PersonajeCreate {
       usuario_ID: 1,
 
       claseTemplate_ID: this.form.value.claseTemplate_ID!,
-      razaTemplate_ID: this.form.value.razaTemplate_ID!
+      razaTemplate_ID: this.form.value.razaTemplate_ID!,
+      claseNivelInicial: this.form.value.claseNivelInicial!
     };
 
     this.personajeService.createPersonaje(dto).subscribe({
@@ -97,6 +125,7 @@ export class PersonajeCreate {
         }
     });
   }
+
 
 
 }
